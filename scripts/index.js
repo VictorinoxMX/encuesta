@@ -7,7 +7,7 @@
 
     document.addEventListener('deviceready', onDeviceReady.bind(this), false);
     document.addEventListener("deviceready", function () {
-navigator.notification.alert("Entro a deviceready de eventos", null, "Funcion: Guarda", 'OK');
+alert("Entro a deviceready de eventos", null, "Funcion: Guarda", 'OK');
 
         window.location.href = '#pregunta111';
 
@@ -19,9 +19,9 @@ navigator.notification.alert("Entro a deviceready de eventos", null, "Funcion: G
                   
                   
                   enviarDatos(nom, tel, mail);
-                  //navigator.notification.alert(nom +'\n'+ tel +'\n'+ mail, null, "Hotel","Aceptar");
+                  //alert(nom +'\n'+ tel +'\n'+ mail, null, "Hotel","Aceptar");
               }else{
-                  navigator.notification.alert('Todos los campos son requeridos', null, "Hotel","Ok");
+                  alert('Todos los campos son requeridos', null, "Hotel","Ok");
               }
            });*/
 
@@ -33,7 +33,7 @@ navigator.notification.alert("Entro a deviceready de eventos", null, "Funcion: G
             obtener_clave(cla);
 
 
-            //navigator.notification.alert(nom +'\n'+ tel +'\n'+ mail, null, "Hotel","Aceptar");
+            //alert(nom +'\n'+ tel +'\n'+ mail, null, "Hotel","Aceptar");
 
         });
 
@@ -42,13 +42,13 @@ navigator.notification.alert("Entro a deviceready de eventos", null, "Funcion: G
             window.location.reload();
 
 
-            //navigator.notification.alert(nom +'\n'+ tel +'\n'+ mail, null, "Hotel","Aceptar");
+            //alert(nom +'\n'+ tel +'\n'+ mail, null, "Hotel","Aceptar");
 
         });
         //---------------guarda encuesta
 
         $('#guarda').tap(function () {
-		 navigator.notification.alert("Entro a evento", null, "Funcion: Guarda", 'OK');
+		 alert("Entro a evento", null, "Funcion: Guarda", 'OK');
             var check = getCookie("indice");
             if (check != null && check != "") {
 
@@ -58,7 +58,7 @@ navigator.notification.alert("Entro a deviceready de eventos", null, "Funcion: G
                 setCookie("indice", 0, 365);
 
             }
-		navigator.notification.alert("paso check cookie", null, "Funcion: Guarda", 'OK');
+		alert("paso check cookie", null, "Funcion: Guarda", 'OK');
 
             var cont = getCookie("indice");
 
@@ -91,24 +91,24 @@ navigator.notification.alert("Entro a deviceready de eventos", null, "Funcion: G
 
 
             if (isConnected()) {
-navigator.notification.alert("reconocio que esta conectado", null, "Funcion: Guarda", 'OK');
+alert("reconocio que esta conectado", null, "Funcion: Guarda", 'OK');
                 var msg = guarda_calif(valrad1, valrad2, valrad3, valrad4, valrad5, cont);
 
-navigator.notification.alert("salio de guarda calif correcto", null, "Funcion: Guarda", 'OK');
+alert("salio de guarda calif correcto", null, "Funcion: Guarda", 'OK');
                 var cont2 = parseInt(cont) + 1;
                 cont = cont2.toString();
                 setCookie("indice", cont, 365);
 
 
                 leeresarvas2();
-navigator.notification.alert("leyo reservas correcto", null, "Funcion: Guarda", 'OK');
+alert("leyo reservas correcto", null, "Funcion: Guarda", 'OK');
             }
             else {
                 guardatempcalif(valrad1, valrad2, valrad3, valrad4, valrad5);
             }
 
             //document.location.reload();
-navigator.notification.alert("termino funcion", null, "Funcion: Guarda", 'OK');
+alert("termino funcion", null, "Funcion: Guarda", 'OK');
 
         });
         /* $('#guarda2').tap(function(){
@@ -164,7 +164,7 @@ navigator.notification.alert("termino funcion", null, "Funcion: Guarda", 'OK');
 
             var cla = $('#clave').val();
             //obtener_clave(cla);
-            navigator.notification.alert("clave=" + cla, null, "Registro", "Aceptar");
+            alert("clave=" + cla, null, "Registro", "Aceptar");
             //window.location.href = '#nr2';
 
         });
@@ -180,7 +180,7 @@ navigator.notification.alert("termino funcion", null, "Funcion: Guarda", 'OK');
     }, false);
 
     function onDeviceReady() {
-navigator.notification.alert("Entro a deviceready simple", null, "Funcion: Guarda", 'OK');
+alert("Entro a deviceready simple", null, "Funcion: Guarda", 'OK');
         window.location.href = '#pregunta111';
         avigator.notification.alert(nom + '\n' + tel + '\n' + mail, null, "Hotel", "Aceptar");
         // Handle the Cordova pause and resume events
@@ -198,12 +198,12 @@ navigator.notification.alert("Entro a deviceready simple", null, "Funcion: Guard
 
     function onPause() {
         // TODO: This application has been suspended. Save application state here.
-navigator.notification.alert("Entro a deviceready onpause", null, "Funcion: Guarda", 'OK');
+alert("Entro a deviceready onpause", null, "Funcion: Guarda", 'OK');
        
     };
 
     function onResume() {
         // TODO: This application has been reactivated. Restore application state here.
-       navigator.notification.alert("Entro a deviceready onresume", null, "Funcion: Guarda", 'OK');
+       alert("Entro a deviceready onresume", null, "Funcion: Guarda", 'OK');
     };
 })();

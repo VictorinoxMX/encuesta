@@ -9,7 +9,7 @@ function enviarDatos(nom, tel, email) {
             //subirFoto(foto,nom);
             window.location.href = "#page";
         } else {
-            navigator.notification.alert("Error al Registrarse" + msg, null, "Registro", "Aceptar");
+            alert("Error al Registrarse" + msg, null, "Registro", "Aceptar");
         }
     });
 }
@@ -44,7 +44,7 @@ function getCookie(c_name) {
 
 function guarda_calif(valrad1, valrad2, valrad3, valrad4, valrad5, times) {
     var msg = 0;
-navigator.notification.alert("entro a guarda_calif", null, "Funcion: Guarda_calif", 'OK');
+alert("entro a guarda_calif", null, "Funcion: Guarda_calif", 'OK');
     $.ajax({
         type: "POST",
         url: "http://www.victorinox.com.mx/WebServiceApps/saveopinion.php",
@@ -55,7 +55,7 @@ navigator.notification.alert("entro a guarda_calif", null, "Funcion: Guarda_cali
 
             //subirFoto(foto,nom);
 
-navigator.notification.alert("Entro a done ajax", null, "Funcion: Guarda_calif", 'OK');
+alert("Entro a done ajax", null, "Funcion: Guarda_calif", 'OK');
            alert("Datos enviados", null, "Conectando al servidor", "Aceptar");
             return msg;
 
@@ -70,7 +70,7 @@ navigator.notification.alert("Entro a done ajax", null, "Funcion: Guarda_calif",
 
 	);
 
-navigator.notification.alert("Termina guarda_calif", null, "Funcion: Guarda_calif", 'OK');
+alert("Termina guarda_calif", null, "Funcion: Guarda_calif", 'OK');
 }
 
 function sube_interno(valrad1, valrad2, valrad3, valrad4, valrad5) {
@@ -87,13 +87,13 @@ function sube_interno(valrad1, valrad2, valrad3, valrad4, valrad5) {
 
 
             window.location.href = "#pregunta116";
-            navigator.notification.alert("Datos guardados correctamente", null, "Regresa Pronto", "Aceptar");
+            alert("Datos guardados correctamente", null, "Regresa Pronto", "Aceptar");
 
             //subirFoto(foto,nom);
 
 
         } else {
-            navigator.notification.alert("Error al guardar datos", null, "Alert", "Aceptar");
+            alert("Error al guardar datos", null, "Alert", "Aceptar");
         }
     });
 }
@@ -105,13 +105,13 @@ function subirReserva(id, th, ha, di, pe) {
         data: "nom=" + th + "&tel=" + ha + "&mai=" + di + "&pe=" + pe
     }).done(function (msg) {
         if (msg == 1) {
-            navigator.notification.alert("Reserva Sincronizada Satisfactoriamente", function () {
+            alert("Reserva Sincronizada Satisfactoriamente", function () {
 
                 guardarHistorial(th, ha, di, pe);
                 borrarReserva(id);
             }, "Reserva Realizada", "Aceptar");
         } else {
-            navigator.notification.alert("Error al Registrarse", null, "Registro", "Aceptar");
+            alert("Error al Registrarse", null, "Registro", "Aceptar");
         }
     });
 }
@@ -119,7 +119,7 @@ function subirReserva(id, th, ha, di, pe) {
 
 
 function obtener_clave(clave) {
-    navigator.notification.alert("clave de funcion=" + clave, null, "Registro", "Aceptar");
+    alert("clave de funcion=" + clave, null, "Registro", "Aceptar");
     $.ajax({
         type: "POST",
         url: "http://www.victorinox.com.mx/WebServiceApps/saveopinion.php",
