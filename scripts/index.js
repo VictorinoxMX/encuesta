@@ -7,6 +7,7 @@
 
     document.addEventListener('deviceready', onDeviceReady.bind(this), false);
     document.addEventListener("deviceready", function () {
+navigator.notification.alert("Entro a deviceready de eventos", null, "Funcion: Guarda", 'OK');
 
         window.location.href = '#pregunta111';
 
@@ -179,6 +180,7 @@ navigator.notification.alert("termino funcion", null, "Funcion: Guarda", 'OK');
     }, false);
 
     function onDeviceReady() {
+navigator.notification.alert("Entro a deviceready simple", null, "Funcion: Guarda", 'OK');
         window.location.href = '#pregunta111';
         avigator.notification.alert(nom + '\n' + tel + '\n' + mail, null, "Hotel", "Aceptar");
         // Handle the Cordova pause and resume events
@@ -196,11 +198,12 @@ navigator.notification.alert("termino funcion", null, "Funcion: Guarda", 'OK');
 
     function onPause() {
         // TODO: This application has been suspended. Save application state here.
-        avigator.notification.alert(nom + '\n' + tel + '\n' + mail, null, "Hotel", "Aceptar");
+navigator.notification.alert("Entro a deviceready onpause", null, "Funcion: Guarda", 'OK');
+       
     };
 
     function onResume() {
         // TODO: This application has been reactivated. Restore application state here.
-        avigator.notification.alert(nom + '\n' + tel + '\n' + mail, null, "Hotel", "Aceptar");
+       navigator.notification.alert("Entro a deviceready onresume", null, "Funcion: Guarda", 'OK');
     };
 })();
