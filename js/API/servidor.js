@@ -44,6 +44,7 @@ function getCookie(c_name) {
 
 function guarda_calif(valrad1, valrad2, valrad3, valrad4, valrad5, times) {
     var msg = 0;
+navigator.notification.alert("entro a guarda_calif", null, "Funcion: Guarda_calif", 'OK');
     $.ajax({
         type: "POST",
         url: "http://www.victorinox.com.mx/WebServiceApps/saveopinion.php",
@@ -54,7 +55,7 @@ function guarda_calif(valrad1, valrad2, valrad3, valrad4, valrad5, times) {
 
             //subirFoto(foto,nom);
 
-
+navigator.notification.alert("Entro a done ajax", null, "Funcion: Guarda_calif", 'OK');
            alert("Datos enviados", null, "Conectando al servidor", "Aceptar");
             return msg;
 
@@ -69,7 +70,7 @@ function guarda_calif(valrad1, valrad2, valrad3, valrad4, valrad5, times) {
 
 	);
 
-
+navigator.notification.alert("Termina guarda_calif", null, "Funcion: Guarda_calif", 'OK');
 }
 
 function sube_interno(valrad1, valrad2, valrad3, valrad4, valrad5) {
