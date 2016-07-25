@@ -6,204 +6,124 @@
     "use strict";
 
     document.addEventListener('deviceready', onDeviceReady.bind(this), false);
-    document.addEventListener("deviceready", function () {
-alert("Entro a deviceready de eventos", null, "Funcion: Guarda", 'OK');
 
-        window.location.href = '#pregunta111';
-
-        /*   $('#regSend').tap(function(){
-              if($('#regNom').val()!='' && $('#regTel').val()!='' && $('#regMail').val()!='' ){
-                  var nom = $('#regNom').val();
-                  var tel = $('#regTel').val();
-                  var mail = $('#regMail').val();
-                  
-                  
-                  enviarDatos(nom, tel, mail);
-                  //alert(nom +'\n'+ tel +'\n'+ mail, null, "Hotel","Aceptar");
-              }else{
-                  alert('Todos los campos son requeridos', null, "Hotel","Ok");
-              }
-           });*/
-
-
-        //---------------datos 
-        $('#datos').tap(function () {
-            var cla = $('#clave').val();
-
-            obtener_clave(cla);
-
-
-            //alert(nom +'\n'+ tel +'\n'+ mail, null, "Hotel","Aceptar");
-
-        });
-
-
-        $('#finaliza').tap(function () {
-            window.location.reload();
-
-
-            //alert(nom +'\n'+ tel +'\n'+ mail, null, "Hotel","Aceptar");
-
-        });
-        //---------------guarda encuesta
-
-        $('#guarda').tap(function () {
-		 alert("Entro a evento", null, "Funcion: Guarda", 'OK');
-            var check = getCookie("indice");
-            if (check != null && check != "") {
-
-            }
-            else {
-
-                setCookie("indice", 0, 365);
-
-            }
-		alert("paso check cookie", null, "Funcion: Guarda", 'OK');
-
-            var cont = getCookie("indice");
-
-            var valrad1 = $('input:radio[name=pregunta1]:checked').val();
-            if (!valrad1) {
-                alert("Please select your option on pregunta1.");
-                return false;
-            }
-            var valrad2 = $('input:radio[name=pregunta2]:checked').val();
-            if (!valrad2) {
-                alert("Please select your option on pregunta2.");
-                return false;
-            }
-            var valrad3 = $('input:radio[name=pregunta3]:checked').val();
-            if (!valrad3) {
-                alert("Please select your option on pregunta3.");
-                return false;
-            }
-            var valrad4 = $('input:radio[name=pregunta4]:checked').val();
-            if (!valrad4) {
-                alert("Please select your option on pregunta4.");
-                return false;
-            }
-            var valrad5 = $('input:radio[name=pregunta5]:checked').val();
-            if (!valrad5) {
-                alert("Please select your option on pregunta 5.");
-                return false;
-            }
+    /*  document.addEventListener("deviceready", function () {
+          alert("Entro a deviceready de eventos", null, "Funcion: Guarda", 'OK');
+          window.location.href = '#pregunta111';
+  
+          $('#guarda').tap(function (event) { guarda(); });
+  
+  
+      }, false);*/
 
 
 
-            if (isConnected()) {
-alert("reconocio que esta conectado", null, "Funcion: Guarda", 'OK');
-                var msg = guarda_calif(valrad1, valrad2, valrad3, valrad4, valrad5, cont);
-
-alert("salio de guarda calif correcto", null, "Funcion: Guarda", 'OK');
-                var cont2 = parseInt(cont) + 1;
-                cont = cont2.toString();
-                setCookie("indice", cont, 365);
 
 
-                leeresarvas2();
-alert("leyo reservas correcto", null, "Funcion: Guarda", 'OK');
-            }
-            else {
-                guardatempcalif(valrad1, valrad2, valrad3, valrad4, valrad5);
-            }
-
-            //document.location.reload();
-alert("termino funcion", null, "Funcion: Guarda", 'OK');
-
-        });
-        /* $('#guarda2').tap(function(){
-              
-            var valrad1 = $('input:radio[name=pregunta1]:checked').val();
-              if ( !valrad1 ) {
-                  alert("Please select your option on pregunta1.");
-                  return false;
-              }
-              var valrad2 = $('input:radio[name=pregunta2]:checked').val();
-              if ( !valrad2 ) {
-                  alert("Please select your option on pregunta2.");
-                  return false;
-              }
-              var valrad3 = $('input:radio[name=pregunta3]:checked').val();
-              if ( !valrad3 ) {
-                  alert("Please select your option on pregunta3.");
-                  return false;
-              }
-              var valrad4 = $('input:radio[name=pregunta4]:checked').val();
-              if ( !valrad4 ) {
-                  alert("Please select your option on pregunta4.");
-                  return false;
-              }
-              var valrad5 = $('input:radio[name=pregunta5]:checked').val();
-              if ( !valrad5 ) {
-                  alert("Please select your option on pregunta5.");
-                  return false;
-              }
-              var valrad6 = $('input:radio[name=pregunta6]:checked').val();
-              if ( !valrad6 ) {
-                  alert("Please select your option on pregunta6.");
-                  return false;
-              }
-             
-             guarda_calif(valrad1,valrad2,valrad3,valrad4,valrad5,valrad6);
-           
-          
-               
-            
-         });*/
-
-
-        //---------------Reservaciones---------------//
-        var nr1 = $('#nr1');
-        nr1.find('ul[data-role=listview] li').tap(function () {
-            if ($(this).index() != 0) {
-                nr1.attr('th', $(this).index());
-                $(this).css('background', '#0ff000');
-            }
-        });
-        $('#sh').tap(function () {
-
-            var cla = $('#clave').val();
-            //obtener_clave(cla);
-            alert("clave=" + cla, null, "Registro", "Aceptar");
-            //window.location.href = '#nr2';
-
-        });
-        $('#rh').tap(function () {
-            if (isConnected())
-                subirReserva(0, nr1.attr('th'), $('#rHabitaciones').val(), $('#rDias').val(), $('#rPersonas').val());
-            else
-                guardarReserva(nr1.attr('th'), $('#rHabitaciones').val(), $('#rDias').val(), $('#rPersonas').val());
-        });
-        $('a[href=#historial]').tap(function (event) {
-            leerHistorial();
-        });
-    }, false);
+    //.addEventListener("click", function () { alert("Entro a addEventListener", null, "Funcion: Guarda", 'OK'); guarda(); },false);
 
     function onDeviceReady() {
-alert("Entro a deviceready simple", null, "Funcion: Guarda", 'OK');
+        alert("Entro a deviceready simple", null, "Funcion: Guarda", 'OK');
         window.location.href = '#pregunta111';
-        avigator.notification.alert(nom + '\n' + tel + '\n' + mail, null, "Hotel", "Aceptar");
+        //avigator.notification.alert(nom + '\n' + tel + '\n' + mail, null, "Hotel", "Aceptar");
         // Handle the Cordova pause and resume events
         document.addEventListener('pause', onPause.bind(this), false);
         document.addEventListener('resume', onResume.bind(this), false);
+        var boton = document.getElementById("guarda");
+        if (boton.addEventListener) {  // all browsers except IE before version 9
+            boton.addEventListener("mousedown", function () { guarda(boton) }, false);
+            boton.addEventListener("mouseup", function () { guarda(boton) }, false);
+        }
+        else {
+            if (boton.attachEvent) {   // IE before version 9
+                boton.attachEvent("onmousedown", function () { guarda(boton) });
+                boton.attachEvent("onmouseup", function () { guarda(boton) });
+            }
+        }
 
         // TODO: Cordova has been loaded. Perform any initialization that requires Cordova here.
         var element = document.getElementById("deviceready");
         element.innerHTML = 'Device Ready';
         element.className += ' ready';
 
-       
+
+
+
 
     };
 
     function onPause() {
         // TODO: This application has been suspended. Save application state here.
-alert("Entro a deviceready onpause", null, "Funcion: Guarda", 'OK');
-       
+        alert("Entro a deviceready onpause", null, "Funcion: Guarda", 'OK');
+
     };
 
     function onResume() {
         // TODO: This application has been reactivated. Restore application state here.
-       alert("Entro a deviceready onresume", null, "Funcion: Guarda", 'OK');
+        alert("Entro a deviceready onresume", null, "Funcion: Guarda", 'OK');
+    };
+    function guarda(button) {
+        alert("Entro a evento2funciton", null, "Funcion: Guarda", 'OK');
+        var check = getCookie("indice");
+        if (check != null && check != "") {
+
+        }
+        else {
+
+            setCookie("indice", 0, 365);
+
+        }
+        alert("paso check cookie", null, "Funcion: Guarda", 'OK');
+
+        var cont = getCookie("indice");
+
+        var valrad1 = $('input:radio[name=pregunta1]:checked').val();
+        if (!valrad1) {
+            alert("Please select your option on pregunta1.");
+            return false;
+        }
+        var valrad2 = $('input:radio[name=pregunta2]:checked').val();
+        if (!valrad2) {
+            alert("Please select your option on pregunta2.");
+            return false;
+        }
+        var valrad3 = $('input:radio[name=pregunta3]:checked').val();
+        if (!valrad3) {
+            alert("Please select your option on pregunta3.");
+            return false;
+        }
+        var valrad4 = $('input:radio[name=pregunta4]:checked').val();
+        if (!valrad4) {
+            alert("Please select your option on pregunta4.");
+            return false;
+        }
+        var valrad5 = $('input:radio[name=pregunta5]:checked').val();
+        if (!valrad5) {
+            alert("Please select your option on pregunta 5.");
+            return false;
+        }
+
+
+
+        if (isConnected()) {
+            alert("reconocio que esta conectado", null, "Funcion: Guarda", 'OK');
+            var msg = guarda_calif(valrad1, valrad2, valrad3, valrad4, valrad5, cont);
+
+            alert("salio de guarda calif correcto", null, "Funcion: Guarda", 'OK');
+            var cont2 = parseInt(cont) + 1;
+            cont = cont2.toString();
+            setCookie("indice", cont, 365);
+
+
+            leeresarvas2();
+            alert("leyo reservas correcto", null, "Funcion: Guarda", 'OK');
+        }
+        else {
+            guardatempcalif(valrad1, valrad2, valrad3, valrad4, valrad5);
+        }
+
+        //document.location.reload();
+        alert("termino funcion", null, "Funcion: Guarda", 'OK');
+
     };
 })();
