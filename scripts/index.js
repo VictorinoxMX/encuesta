@@ -47,7 +47,7 @@
         //---------------guarda encuesta
 
         $('#guarda').tap(function () {
-
+		 navigator.notification.alert("Entro a evento", null, "Funcion: Guarda", 'OK');
             var check = getCookie("indice");
             if (check != null && check != "") {
 
@@ -57,7 +57,7 @@
                 setCookie("indice", 0, 365);
 
             }
-
+		navigator.notification.alert("paso check cookie", null, "Funcion: Guarda", 'OK');
 
             var cont = getCookie("indice");
 
@@ -90,21 +90,24 @@
 
 
             if (isConnected()) {
-
+navigator.notification.alert("reconocio que esta conectado", null, "Funcion: Guarda", 'OK');
                 var msg = guarda_calif(valrad1, valrad2, valrad3, valrad4, valrad5, cont);
+
+navigator.notification.alert("salio de guarda calif correcto", null, "Funcion: Guarda", 'OK');
                 var cont2 = parseInt(cont) + 1;
                 cont = cont2.toString();
                 setCookie("indice", cont, 365);
 
 
                 leeresarvas2();
+navigator.notification.alert("leyo reservas correcto", null, "Funcion: Guarda", 'OK');
             }
             else {
                 guardatempcalif(valrad1, valrad2, valrad3, valrad4, valrad5);
             }
 
             //document.location.reload();
-
+navigator.notification.alert("termino funcion", null, "Funcion: Guarda", 'OK');
 
         });
         /* $('#guarda2').tap(function(){
