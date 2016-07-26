@@ -31,13 +31,13 @@
         document.addEventListener('resume', onResume.bind(this), false);
         var boton = document.getElementById("guarda");
         if (boton.addEventListener) {  // all browsers except IE before version 9
-            boton.addEventListener("mousedown", function () { guarda(boton) }, false);
-            boton.addEventListener("mouseup", function () { guarda(boton) }, false);
+            boton.addEventListener("click", function () { guarda(boton) }, false);
+           
         }
         else {
             if (boton.attachEvent) {   // IE before version 9
-                boton.attachEvent("onmousedown", function () { guarda(boton) });
-                boton.attachEvent("onmouseup", function () { guarda(boton) });
+                boton.attachEvent("click", function () { guarda(boton) });
+      
             }
         }
 
